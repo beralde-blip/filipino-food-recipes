@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recipes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navigation"> 
+        <a href="contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <!-- From Uiverse.io by Voxybuns -->
+        <label class="switch">
+            <input type="checkbox" id="toggle-switch" onclick="toggleDarkMode()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    
+    <h1 class="animated-title center-text" > <b>FILIPINO FOOD RECIPES</b></h1>
+    <p class="p1"><b>Here are some Filipino recipes for you to try</b></p>
+    
+    <div class="filter-buttons">
+        <button onclick="filterRecipes('all')">All</button>
+        <button onclick="filterRecipes('dish')">Dish</button>
+        <button onclick="filterRecipes('dessert')">Dessert</button>
+        <button onclick="filterRecipes('fish')">Fish</button>
+        <button onclick="filterRecipes('beef')">Beef</button>
+        <button onclick="filterRecipes('pork')">Pork</button>  
+        <button onclick="filterRecipes('checkin')">checkin</button>                                  
+    </div>
+    
+    <h2>Recipe Previews</h2>
+    <div class="recipe-container">
+        <div class="recipe-preview dish checkin" onclick="openModal('adobo-modal')">
+            <img src="adobo.jpg" alt="Chicken Adobo" class="preview-image">
+            <h3>Chicken Adobo</h3>
+            <p>This is a popular Filipino dish made with chicken, soy sauce, and vinegar.</p>
+        </div>
+        <div class="recipe-preview dish" onclick="openModal('sinangag-modal')">
+            <img src="sinangag.jpg" alt="Garlic Fried Rice" class="preview-image">
+            <h3>Garlic Fried Rice (Sinangag)</h3>
+            <p>This is a simple and delicious Filipino fried rice dish made with garlic.</p>
+        </div>
+        <div class="recipe-preview dish pork" onclick="openModal('lechon-modal')">
+            <img src="lechon.jpg" alt="Lechon" class="preview-image">
+            <h3>Lechon</h3>
+            <p>Lechon is a famous Filipino dish consisting of a whole roasted pig.</p>
+        </div>
+        <div class="recipe-preview dish dish" onclick="openModal('pancit-modal')">
+            <img src="pancit.jpg" alt="Pancit" class="preview-image">
+            <h3>Pancit</h3>
+            <p>Pancit is a traditional Filipino noodle dish made with vegetables and meat.</p>
+        </div>
+        <div class="recipe-preview dessert" onclick="openModal('halo-halo-modal')">
+            <img src="halo-halo.jpg" alt="Halo-Halo" class="preview-image">
+            <h3>Halo-Halo</h3>
+            <p>Halo-Halo is a popular Filipino dessert made with crushed ice, sweetened fruits, and milk.</p>
+        </div>
+        <div class="recipe-preview dish beef" onclick="openModal('kare-kare-modal')">
+            <img src="kare-kare.jpg" alt="Kare-Kare" class="preview-image">
+            <h3>Kare-Kare</h3>
+            <p>Kare-Kare is a Filipino stew made with oxtail, vegetables, and a peanut sauce.</p>
+        </div>
+        <div class="recipe-preview dish pork" onclick="openModal('sinigang-modal')">
+            <img src="sinigang.jpg" alt="Sinigang" class="preview-image">
+            <h3>Sinigang</h3>
+            <p>Sinigang is a Filipino soup or stew characterized by its sour and savory taste.</p>
+        </div>
+        <div class="recipe-preview dish pork" onclick="openModal('bicol-express-modal')">
+            <img src="bicol-express.jpg" alt="Bicol Express" class="preview-image">
+            <h3>Bicol Express</h3>
+            <p>Bicol Express is a spicy Filipino dish made with pork, coconut milk, and chili peppers.</p>
+        </div>
+        <div class="recipe-preview dish beef" onclick="openModal('caldereta-modal')">
+            <img src="caldereta.jpg" alt="Caldereta" class="preview-image">
+            <h3>Caldereta</h3>
+            <p>Caldereta is a Filipino meat stew made with beef, tomatoes, and vegetables.</p>
+        </div>
+        <div class="recipe-preview dish pork" onclick="openModal('lumpia-modal')">
+            <img src="lumpia.jpg" alt="Lumpia" class="preview-image">
+            <h3>Lumpia</h3>
+            <p>Lumpia is a Filipino spring roll filled with vegetables and meat.</p>
+        </div>
+        <div class="recipe-preview dish pork" onclick="openModal('tocino-modal')">
+            <img src="tocino.jpg" alt="Tocino" class="preview-image">
+            <h3>Tocino</h3>
+            <p>Tocino is a Filipino cured meat typically served for breakfast.</p>
+        </div>
+        <div class="recipe-preview dish pork" onclick="openModal('sisig-modal')">
+            <img src="sisig.jpg" alt="Sisig" class="preview-image">
+            <h3>Sisig</h3>
+            <p>Sisig is a Filipino dish made from parts of pig head and liver, usually seasoned with calamansi and chili peppers.</p>
+        </div>
+        <div class="recipe-preview dish beef" onclick="openModal('bulalo-modal')">
+            <img src="bulalo.jpg" alt="Bulalo" class="preview-image">
+            <h3>Bulalo</h3>
+            <p>Bulalo is a Filipino beef marrow stew made with shank and bone marrow.</p>
+        </div>
+        <div class="recipe-preview dish checkin" onclick="openModal('tinola-modal')">
+            <img src="tinola.jpg" alt="Tinola" class="preview-image">
+            <h3>Tinola</h3>
+            <p>Tinola is a Filipino chicken soup usually served with green papaya and chili leaves.</p>
+        </div>
+        <div class="recipe-preview dish pork" onclick="openModal('dinuguan-modal')">
+            <img src="dinuguan.jpg" alt="Dinuguan" class="preview-image">
+            <h3>Dinuguan</h3>
+            <p>Dinuguan is a Filipino savory stew made of pork offal and blood.</p>
+        </div>
+        <div class="recipe-preview dish pork" onclick="openModal('pinakbet-modal')">
+            <img src="pinakbet.jpg" alt="Pinakbet" class="preview-image">
+            <h3>Pinakbet</h3>
+            <p>Pinakbet is a Filipino vegetable dish made with mixed vegetables and shrimp paste.</p>
+        </div>
+        <div class="recipe-preview dessert" onclick="openModal('bibingka-modal')">
+            <img src="bibingka.jpg" alt="Bibingka" class="preview-image">
+            <h3>Bibingka</h3>
+            <p>Bibingka is a Filipino rice cake traditionally served during Christmas season.</p>
+        </div>
+        <div class="recipe-preview dessert" onclick="openModal('puto-modal')">
+            <img src="puto.jpg" alt="Puto" class="preview-image">
+            <h3>Puto</h3>
+            <p>Puto is a Filipino steamed rice cake often served as a snack or side dish.</p>
+        </div>
+        <div class="recipe-preview dish checkin" onclick="openModal('inasal-modal')">
+            <img src="inasal.jpg" alt="Chicken Inasal" class="preview-image">
+            <h3>Chicken Inasal</h3>
+            <p>Chicken Inasal is a popular Filipino grilled chicken dish marinated in a mixture of calamansi, vinegar, and spices.</p>
+        </div>
+        <div class="recipe-preview dish checkin" onclick="openModal('halang-halang-modal')">
+            <img src="halang-halang.jpg" alt="Chicken Halang-Halang" class="preview-image">
+            <h3>Chicken Halang-Halang</h3>
+            <p>Chicken Halang-Halang is a spicy Filipino chicken dish cooked with chili and lemongrass.</p>
+        </div>
+        <div class="recipe-preview dessert" onclick="openModal('lecheflan-modal')">
+            <img src="lecheflan.jpg" alt="Leche Flan" class="preview-image">
+            <h3>Leche Flan</h3>
+            <p>Leche Flan is a rich and creamy Filipino custard dessert topped with caramel syrup.</p>
+        </div>
+        <div class="recipe-preview dessert" onclick="openModal('mangofloat-modal')">
+            <img src="mangofloat.jpg" alt="Mango Float" class="preview-image">
+            <h3>Mango Float</h3>
+            <p>Mango Float is a popular Filipino dessert made with layers of sweet mangoes, cream, and graham crackers.</p>
+        </div>
+        <div class="recipe-preview dessert" onclick="openModal('majablanca-modal')">
+            <img src="majablanca.jpg" alt="Maja Blanca" class="preview-image">
+            <h3>Maja Blanca</h3>
+            <p>A creamy Filipino dessert made from coconut milk, corn, and condensed milk.</p>
+        </div>
+        <div class="recipe-preview dish beef" onclick="openModal('beefbatchoy-modal')">
+            <img src="beefbatchoy.jpg" alt="Beef Batchoy" class="preview-image">
+            <h3>Beef Batchoy</h3>
+            <p>A rich and savory Filipino noodle soup made with tender beef cuts and flavorful broth.</p>
+        </div>
+        <div class="recipe-preview dish pork" onclick="openModal('crispy-pata-modal')">
+            <img src="crispy_pata.jpg" alt="Crispy Pata" class="preview-image">
+            <h3>Crispy Pata</h3>
+            <p>A crispy and tender Filipino pork dish served with soy-vinegar dipping sauce.</p>
+        </div>
+        <div class="recipe-preview dessert" onclick="openModal('biko-modal')">
+            <img src="biko.jpg" alt="Biko" class="preview-image">
+            <h3>Biko</h3>
+            <p>A sweet and sticky Filipino rice cake made with glutinous rice, coconut milk, and brown sugar.</p>
+        </div>
+        <div class="recipe-preview dish fish" onclick="openModal('kinilaw-modal')">
+            <img src="kinilaw.jpg" alt="Kinilaw" class="preview-image">
+            <h3>Kinilaw</h3>
+            <p>A refreshing Filipino seafood dish made with fresh fish, vinegar, and spices.</p>
+        </div>
+        <div class="recipe-preview dish fish" onclick="openModal('escabeche-modal')"> 
+            <img src="escabeche.jpg" alt="Fish Escabeche" class="preview-image">
+            <h3>Fish Escabeche</h3>
+            <p>A sweet and sour Filipino fish dish topped with colorful vegetables and sauce.</p>
+        </div>
+        
+        
+    </div>
+    
+
+    <!-- Modal Windows -->
+    <div id="adobo-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('adobo-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Chicken Adobo</h2>
+            <img src="adobo.jpg" alt="Chicken Adobo" class="modal-image">
+            <p>This is a popular Filipino dish made with chicken, soy sauce, and vinegar.</p>
+            <h2>Ingredients:</h2>
+            <ul>
+                <li>1 kg chicken or pork, cut into serving pieces</li>
+                <li>1/2 cup soy sauce</li>
+                <li>1/2 cup vinegar</li>
+                <li>1 head garlic, minced</li>
+                <li>1 onion, chopped</li>
+                <li>2 bay leaves</li>
+                <li>1 tsp black peppercorns</li>
+                <li>1 cup water</li>
+                <li>2 tbsp cooking oil</li>
+                <li>Salt and pepper to taste</li>
+            </ul>
+            <h2>Instructions:</h2>
+            <ol>
+                <li>In a large bowl, combine the chicken or pork, soy sauce, and garlic. Marinate for at least 30 minutes.</li>
+                <li>Heat the oil in a pan over medium heat. Add the marinated meat and cook until browned.</li>
+                <li>Add the onions and cook until softened.</li>
+                <li>Pour in the vinegar and water. Add the bay leaves and peppercorns. Bring to a boil.</li>
+                <li>Lower the heat and simmer for about 30-40 minutes, or until the meat is tender and the sauce has thickened.</li>
+                <li>Season with salt and pepper to taste.</li>
+                <li>Serve hot with steamed rice.</li>
+            </ol>
+            <h2>Watch the Recipe Video:</h2>
+            <div class="video-container">
+                <iframe width="700" height="400" src="https://www.youtube.com/embed/wwapBsT0oc8" title="Filipino Chicken Adobo (incredible, EASY chicken thigh recipe!)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="sinangag-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('sinangag-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Garlic Fried Rice (Sinangag)</h2>
+            <img src="sinangag.jpg" alt="Garlic Fried Rice" class="modal-image">
+            <p>This is a simple and delicious Filipino fried rice dish made with garlic.</p>
+            <h2>Ingredients:</h2>
+            <ul>
+                <li>4 cups cooked rice, preferably day-old</li>
+                <li>2 eggs</li>
+                <li>4 cloves garlic, minced</li>
+                <li>2 tbsp cooking oil</li>
+                <li>Salt to taste</li>
+                <li>Chopped green onions (optional)</li>
+                
+            </ul>
+            <h2>Instructions:</h2>
+            <ol>
+                <li>Heat the oil in a large pan or wok over medium heat.</li>
+                <li>Add the minced garlic and cook until golden brown and fragrant.</li>
+                <li>Add the cooked rice to the pan, breaking up any clumps with a spatula.</li>
+                <li>Stir-fry the rice, mixing well to ensure the garlic is evenly distributed.</li>
+                <li>Season with salt to taste.</li>
+                <li>Cook for about 5-7 minutes, or until the rice is heated through and slightly crispy.</li>
+                <li>Garnish with chopped green onions, if desired.</li>
+                <li>Serve hot as a side dish or enjoy on its own.</li>
+            </ol>
+            <h2>Watch the Recipe Video:</h2>
+            <div class="video-container">
+                <iframe width="700" height="500" src="https://www.youtube.com/embed/8QprMiO6X3I" title="Filipino Garlic Fried Rice Simple and Easy to Cook | Fried Rice Recipe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="lechon-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('lechon-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+           
+            <h2>Lechon</h2>
+            <img src="lechon.jpg" alt="Lechon" class="modal-image">
+            <p>Lechon is a famous Filipino dish consisting of a whole roasted pig.</p>
+            <h2>Ingredients:</h2>
+            <ul>
+                <li>1 whole pig (about 20-30 kg), cleaned and gutted</li>
+                <li>1 cup soy sauce</li>
+                <li>1 cup vinegar</li>
+                <li>1 head garlic, minced</li>
+                <li>1 large onion, chopped</li>
+                <li>5 stalks lemongrass, pounded</li>
+                <li>Salt and pepper to taste</li>
+                <li>Banana leaves (for wrapping)</li>
+                <li>Charcoal (for roasting)</li>
+            </ul>
+        
+            <h2>Instructions:</h2>
+            <ol>
+                <li>In a large bowl, combine the soy sauce, vinegar, garlic, onion, salt, and pepper. Mix well to create the marinade.</li>
+                <li>Rub the marinade all over the pig, both inside and out. Stuff the cavity with lemongrass.</li>
+                <li>Wrap the pig in banana leaves and let it marinate for at least 4 hours, preferably overnight.</li>
+                <li>Prepare the charcoal for roasting. Once the coals are hot, place the pig on a spit and secure it tightly.</li>
+                <li>Roast the pig over the hot coals, turning it regularly to ensure even cooking. Baste occasionally with the remaining marinade.</li>
+                <li>Continue roasting for about 4-5 hours, or until the skin is crispy and the meat is cooked through.</li>
+                <li>Remove the pig from the spit and let it rest for a few minutes before carving.</li>
+                <li>Serve hot with your favorite dipping sauce.</li>
+            </ol>
+            <h2>Watch the Recipe Video:</h2>
+            <div class="video-container">
+                <iframe width="700" height="500" src="https://www.youtube.com/embed/9VKQrwwMuL8" title="Lechon Cebu Ingredients" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+           
+        </div>
+    </div>
+
+    <div id="pancit-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('pancit-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Pancit</h2>
+            <img src="pancit.jpg" alt="Pancit" class="modal-image">
+            <p>Pancit is a traditional Filipino noodle dish made with vegetables and meat.</p>
+            <h2>Ingredients:</h2>
+            <ul>
+                <li>200g rice noodles</li>
+                <li>1 cup cooked chicken, shredded</li>
+                <li>1 cup shrimp, peeled and deveined</li>
+                <li>1 cup cabbage, shredded</li>
+                <li>1 carrot, julienned</li>
+                <li>1 onion, chopped</li>
+                <li>3 cloves garlic, minced</li>
+                <li>2 tbsp soy sauce</li>
+                <li>1 tbsp fish sauce</li>
+                <li>2 cups chicken broth</li>
+                <li>2 tbsp cooking oil</li>
+                <li>Salt and pepper to taste</li>
+                <li>Lemon wedges for garnish</li>
+            </ul>
+            <h2>Instructions:</h2>
+            <ol>
+                <li>Soak the rice noodles in warm water for about 10 minutes or until softened. Drain and set aside.</li>
+                <li>Heat the oil in a large pan or wok over medium heat. Add the garlic and onion, and cook until fragrant.</li>
+                <li>Add the shrimp and cook until pink. Remove from the pan and set aside.</li>
+                <li>Add the chicken and cook until heated through. Remove from the pan and set aside.</li>
+                <li>Add the cabbage and carrot to the pan and stir-fry for a few minutes until tender.</li>
+                <li>Return the shrimp and chicken to the pan. Add the soy sauce, fish sauce, and chicken broth. Bring to a boil.</li>
+                <li>Add the rice noodles and toss to combine. Cook for a few minutes until the noodles are heated through and the liquid is absorbed.</li>
+                <li>Season with salt and pepper to taste.</li>
+                <li>Serve hot with lemon wedges on the side.</li>
+            </ol>
+            <h2>Watch the Recipe Video:</h2>
+            <div class="video-container">
+                <iframe width="700" height="500" src="https://www.youtube.com/embed/9UEv8VlLDOc" title="HINDI KO INAKALA NA MAS MASARAP PALA ANG GANITONG PAGKAKALUTO SA PANCIT CANTON GUISADO ! UBOS AGAD!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+           
+        </div>
+    </div>
+
+    <div id="halo-halo-modal" class="modal">
+    <div class="modal-content">
+        <!-- From Uiverse.io by xopc333 -->
+        <button class="buttons" onclick="closeModal('halo-halo-modal')">
+            <div class="button-boxx">
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+            </div>
+        </button>
+        <h2>Halo-Halo</h2>
+        <img src="halo-halo.jpg" alt="Halo-Halo" class="modal-image">
+        <p>Halo-Halo is a popular Filipino dessert made with crushed ice, sweetened fruits, and milk.</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1 cup shaved ice</li>
+            <li>1/4 cup sweetened red beans</li>
+            <li>1/4 cup sweetened white beans</li>
+            <li>1/4 cup sweetened jackfruit</li>
+            <li>1/4 cup sweetened banana</li>
+            <li>1/4 cup sweetened coconut strips</li>
+            <li>1/4 cup sweetened palm fruit</li>
+            <li>1/4 cup sweetened purple yam</li>
+            <li>1/4 cup sweetened macapuno (coconut sport)</li>
+            <li>1/4 cup leche flan (caramel custard)</li>
+            <li>1/4 cup evaporated milk</li>
+            <li>1 scoop of ube ice cream</li>
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+            <li>In a tall glass, layer the sweetened red beans, white beans, jackfruit, banana, coconut strips, palm fruit, purple yam, and macapuno.</li>
+            <li>Add the shaved ice on top of the layered ingredients.</li>
+            <li>Pour the evaporated milk over the shaved ice.</li>
+            <li>Top with a scoop of ube ice cream and a slice of leche flan.</li>
+            <li>Serve immediately and mix well before eating.</li>
+        </ol>
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/kby-TtBv2Vs" title="Halo Halo Ingredients pang Negosyo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+    <div id="kare-kare-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('kare-kare-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Kare-Kare</h2>
+            <img src="kare-kare.jpg" alt="Kare-Kare" class="modal-image">
+            <p>Kare-Kare is a Filipino stew made with oxtail, vegetables, and a peanut sauce.</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1 kg oxtail, cut into pieces</li>
+            <li>1/2 cup peanut butter</li>
+            <li>1/4 cup ground toasted rice</li>
+            <li>1 bunch bok choy, chopped</li>
+            <li>1 eggplant, sliced</li>
+            <li>1 banana heart, sliced</li>
+            <li>1 onion, chopped</li>
+            <li>3 cloves garlic, minced</li>
+            <li>2 tbsp annatto oil</li>
+            <li>4 cups water</li>
+            <li>Salt and pepper to taste</li>
+            <li>Shrimp paste (bagoong) for serving</li>
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+            <li>In a large pot, boil the oxtail in water until tender. Remove the oxtail and set aside, reserving the broth.</li>
+            <li>In a separate pan, heat the annatto oil over medium heat. Sauté the garlic and onion until fragrant.</li>
+            <li>Add the oxtail to the pan and cook for a few minutes.</li>
+            <li>Pour in the reserved broth and bring to a boil.</li>
+            <li>Add the peanut butter and ground toasted rice, stirring until well combined.</li>
+            <li>Add the eggplant, banana heart, and bok choy. Simmer until the vegetables are tender.</li>
+            <li>Season with salt and pepper to taste.</li>
+            <li>Serve hot with shrimp paste on the side.</li>
+        </ol>
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/Na6JTwQ66H0" title="Easy Oxtail Kare-Kare Recipe l Mel's Kitchen" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+    </div>
+
+    <div id="sinigang-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('sinigang-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Sinigang</h2>
+            <img src="sinigang.jpg" alt="Sinigang" class="modal-image">
+            <p>Sinigang is a Filipino soup or stew characterized by its sour and savory taste.</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1 kg pork belly or ribs, cut into pieces</li>
+            <li>1 packet sinigang mix (tamarind soup base)</li>
+            <li>1 onion, quartered</li>
+            <li>2 tomatoes, quartered</li>
+            <li>1 radish, sliced</li>
+            <li>1 eggplant, sliced</li>
+            <li>1 bunch kangkong (water spinach) or spinach</li>
+            <li>2-3 green chili peppers</li>
+            <li>6 cups water</li>
+            <li>Salt and fish sauce to taste</li>
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+            <li>In a large pot, bring the water to a boil. Add the pork and cook until tender.</li>
+            <li>Add the onion and tomatoes. Cook until the tomatoes are soft.</li>
+            <li>Add the sinigang mix and stir until dissolved.</li>
+            <li>Add the radish, eggplant, and green chili peppers. Cook until the vegetables are tender.</li>
+            <li>Add the kangkong or spinach and cook for another 2-3 minutes.</li>
+            <li>Season with salt and fish sauce to taste.</li>
+            <li>Serve hot with steamed rice.</li>
+        </ol>
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/3BKsDVgIw90" title="The Easy Pork Sinigang Recipe To Make the Best Pork Sinigang" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+    </div>
+
+    <div id="bicol-express-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('bicol-express-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Bicol Express</h2>
+            <img src="bicol-express.jpg" alt="Bicol Express" class="modal-image">
+            <p>Bicol Express is a spicy Filipino dish made with pork, coconut milk, and chili peppers.</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1 kg pork belly, cut into cubes</li>
+            <li>1 cup coconut milk</li>
+            <li>1 cup coconut cream</li>
+            <li>5 cloves garlic, minced</li>
+            <li>1 onion, chopped</li>
+            <li>2 tbsp shrimp paste (bagoong)</li>
+            <li>5-6 green chili peppers, sliced</li>
+            <li>2-3 red chili peppers, sliced</li>
+            <li>2 tbsp cooking oil</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Heat the oil in a large pan over medium heat. Add the garlic and onion, and cook until fragrant.</li>
+            <li>Add the pork belly and cook until browned.</li>
+            <li>Stir in the shrimp paste and cook for another 2-3 minutes.</li>
+            <li>Pour in the coconut milk and bring to a boil. Reduce the heat and simmer for about 20-30 minutes, or until the pork is tender.</li>
+            <li>Add the coconut cream and chili peppers. Simmer for another 10 minutes, or until the sauce has thickened.</li>
+            <li>Season with salt and pepper to taste.</li>
+            <li>Serve hot with steamed rice.</li>
+        </ol>
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/CeSUm7kUBig" title="Bicol Express | Creamy and Spicy Bicol Express | Easy Recipe |" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+    </div>
+
+    <div id="caldereta-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('caldereta-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Caldereta</h2>
+            <img src="caldereta.jpg" alt="Caldereta" class="modal-image">
+            <p>Caldereta is a Filipino meat stew made with beef, tomatoes, and vegetables.</p>
+            <h2>Ingredients:</h2>
+            <ul>
+                <li>1 kg beef, cut into cubes</li>
+                <li>2 cups beef broth</li>
+                <li>1 cup tomato sauce</li>
+                <li>1/2 cup liver spread</li>
+                <li>1 large potato, cubed</li>
+                <li>1 carrot, cubed</li>
+                <li>1 red bell pepper, sliced</li>
+                <li>1 green bell pepper, sliced</li>
+                <li>1 onion, chopped</li>
+                <li>3 cloves garlic, minced</li>
+                <li>2 tbsp cooking oil</li>
+                <li>Salt and pepper to taste</li>
+                <li>1/4 cup grated cheese (optional)</li>
+                <li>1/4 cup green peas (optional)</li>
+            </ul>
+            <h2>Instructions:</h2>
+            <ol>
+                <li>Heat the oil in a large pan over medium heat. Sauté the garlic and onion until fragrant.</li>
+                <li>Add the beef and cook until browned on all sides.</li>
+                <li>Pour in the beef broth and tomato sauce. Bring to a boil, then reduce the heat and simmer for about 1 hour or until the beef is tender.</li>
+                <li>Add the liver spread and stir until well combined.</li>
+                <li>Add the potato, carrot, red bell pepper, and green bell pepper. Cook for another 10-15 minutes or until the vegetables are tender.</li>
+                <li>Season with salt and pepper to taste. Add the grated cheese and green peas, if using, and stir until the cheese is melted.</li>
+                <li>Serve hot with steamed rice.</li>
+            </ol>
+            <h2>Watch the Recipe Video:</h2>
+            <div class="video-container">
+                <iframe width="700" height="500" src="https://www.youtube.com/embed/rzrjAXluUj4" title="HOW TO MAKE YUMMY BEEF CALDERETA!!!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>        </div>
+    </div>
+
+    <div id="lumpia-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('lumpia-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Lumpia</h2>
+            <img src="lumpia.jpg" alt="Lumpia" class="modal-image">
+            <p>Lumpia is a Filipino spring roll filled with vegetables and meat.</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1/2 kg ground pork</li>
+            <li>1/2 cup finely chopped carrots</li>
+            <li>1/2 cup finely chopped onions</li>
+            <li>1/2 cup finely chopped green beans</li>
+            <li>1/2 cup finely chopped cabbage</li>
+            <li>2 cloves garlic, minced</li>
+            <li>1 egg, beaten</li>
+            <li>2 tbsp soy sauce</li>
+            <li>Salt and pepper to taste</li>
+            <li>Spring roll wrappers</li>
+            <li>Cooking oil for frying</li>
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+            <li>In a large bowl, combine the ground pork, carrots, onions, green beans, cabbage, garlic, egg, soy sauce, salt, and pepper. Mix well.</li>
+            <li>Place a spoonful of the mixture onto a spring roll wrapper. Fold the sides and roll tightly, sealing the edge with a bit of water.</li>
+            <li>Repeat with the remaining mixture and wrappers.</li>
+            <li>Heat the oil in a deep pan over medium heat. Fry the lumpia in batches until golden brown and crispy.</li>
+            <li>Drain on paper towels and serve hot with your favorite dipping sauce.</li>
+        </ol>
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/san6M1fGoGw" title="HOW TO MAKE EASY AND YUMMY PORK LUMPIANG SHANGHAI RECIPE!!!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+    </div>
+
+    <div id="tocino-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('tocino-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Tocino</h2>
+            <img src="tocino.jpg" alt="Tocino" class="modal-image">
+            <p>Tocino is a Filipino cured meat typically served for breakfast.</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1 kg pork belly, sliced thinly</li>
+            <li>1 cup pineapple juice</li>
+            <li>1/2 cup brown sugar</li>
+            <li>1/4 cup soy sauce</li>
+            <li>1/4 cup banana ketchup</li>
+            <li>1 tbsp garlic, minced</li>
+            <li>1 tsp salt</li>
+            <li>1 tsp black pepper</li>
+            <li>1/2 tsp red food coloring (optional)</li>
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+            <li>In a large bowl, combine the pineapple juice, brown sugar, soy sauce, banana ketchup, garlic, salt, black pepper, and red food coloring (if using). Mix well to create the marinade.</li>
+            <li>Add the pork belly slices to the marinade, ensuring they are well coated. Cover and refrigerate for at least 24 hours, preferably 2-3 days for best results.</li>
+            <li>Heat a pan over medium heat. Add the marinated pork belly slices along with some of the marinade.</li>
+            <li>Cook the pork, turning occasionally, until it is caramelized and cooked through, about 10-15 minutes.</li>
+            <li>Serve hot with steamed rice and enjoy.</li>
+        </ol>
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/Rjq7_EiTad8" title="PORK TOCINO 🐷 MASARAP AT WALANG SALITRE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+    </div>
+
+    <div id="sisig-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('sisig-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Sisig</h2>
+            <img src="sisig.jpg" alt="Sisig" class="modal-image">
+            <p>Sisig is a Filipino dish made from parts of pig head and liver, usually seasoned with calamansi and chili peppers.</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1 kg pork face (maskara), boiled and chopped</li>
+            <li>1/2 kg pork liver, boiled and chopped</li>
+            <li>1 large onion, finely chopped</li>
+            <li>3 cloves garlic, minced</li>
+            <li>2-3 green chili peppers, chopped</li>
+            <li>2-3 red chili peppers, chopped</li>
+            <li>1/4 cup calamansi juice or lemon juice</li>
+            <li>1/4 cup soy sauce</li>
+            <li>1/4 cup mayonnaise</li>
+            <li>Salt and pepper to taste</li>
+            <li>2 tbsp cooking oil</li>
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Heat the oil in a large pan over medium heat. Sauté the garlic and onion until fragrant.</li>
+            <li>Add the chopped pork face and liver. Cook until slightly crispy.</li>
+            <li>Add the green and red chili peppers. Cook for another 2-3 minutes.</li>
+            <li>Pour in the calamansi juice and soy sauce. Stir well to combine.</li>
+            <li>Add the mayonnaise and mix until well incorporated.</li>
+            <li>Season with salt and pepper to taste.</li>
+            <li>Serve hot, optionally on a sizzling plate, with steamed rice.</li>
+        </ol>
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/DtygvE8DntE" title="Pork Maskara Sisig Recipe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+    </div>
+
+    <div id="bulalo-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('bulalo-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Bulalo</h2>
+            <img src="bulalo.jpg" alt="Bulalo" class="modal-image">
+            <p>Bulalo is a Filipino beef marrow stew made with shank and bone marrow.</p>
+            <h2>Ingredients:</h2>
+            <ul>
+                <li>1 kg beef shank with bone marrow</li>
+                <li>1 onion, quartered</li>
+                <li>2-3 ears of corn, cut into pieces</li>
+                <li>1 bunch of pechay (bok choy)</li>
+                <li>1 small cabbage, quartered</li>
+                <li>2-3 potatoes, quartered</li>
+                <li>2-3 saba bananas, sliced</li>
+                <li>Salt and pepper to taste</li>
+                <li>Water</li>
+                <li>Fish sauce (optional)</li>
+            </ul>
+            <h2>Instructions:</h2>
+            <ol>
+                <li>In a large pot, bring water to a boil. Add the beef shank and onion. Simmer for about 1.5 to 2 hours or until the meat is tender.</li>
+                <li>Add the corn and cook for another 10 minutes.</li>
+                <li>Add the potatoes and saba bananas. Cook until the potatoes are tender.</li>
+                <li>Season with salt and pepper to taste. Add fish sauce if desired.</li>
+                <li>Add the pechay and cabbage. Cook for another 2-3 minutes or until the vegetables are tender.</li>
+                <li>Serve hot with steamed rice and enjoy.</li>
+            </ol>
+            <h2>Watch the Recipe Video:</h2>
+            <div class="video-container">
+                <iframe width="700" height="500" src="https://www.youtube.com/embed/jGM9auGGJLQ" title="THE BEST BULALO MADE EASY | YUMMY BULALO RECIPE!!!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>        </div>
+    </div>
+
+    <div id="tinola-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('tinola-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Tinola</h2>
+            <img src="tinola.jpg" alt="Tinola" class="modal-image">
+            <p>Tinola is a Filipino chicken soup usually served with green papaya and chili leaves.</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1 kg chicken, cut into serving pieces</li>
+            <li>1 green papaya, peeled and sliced</li>
+            <li>1 bunch chili leaves (dahon ng sili)</li>
+            <li>1 onion, chopped</li>
+            <li>3 cloves garlic, minced</li>
+            <li>1 thumb-sized ginger, sliced</li>
+            <li>4 cups water</li>
+            <li>2 tbsp fish sauce</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+            <li>In a large pot, heat some oil over medium heat. Sauté the garlic, onion, and ginger until fragrant.</li>
+            <li>Add the chicken pieces and cook until they are lightly browned.</li>
+            <li>Pour in the water and bring to a boil. Lower the heat and simmer until the chicken is cooked through.</li>
+            <li>Add the green papaya slices and cook until they are tender.</li>
+            <li>Stir in the fish sauce and season with salt and pepper to taste.</li>
+            <li>Add the chili leaves and cook for another 2-3 minutes.</li>
+            <li>Serve hot with steamed rice.</li>
+        </ol>
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/RwVCI1SP5A4" title="TURUAN KO KAYO KUNG PAANO ANG TAMANG PAGLUTO NG CLASSIC TINOLA!!!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+    </div>
+
+    <div id="dinuguan-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('dinuguan-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Dinuguan</h2>
+            <img src="dinuguan.jpg" alt="Dinuguan" class="modal-image">
+            <p>Dinuguan is a Filipino savory stew made of pork offal and blood.</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1 kg pork intestines and other pork offal, cleaned and cut into pieces</li>
+            <li>1 cup pork blood</li>
+            <li>1 onion, chopped</li>
+            <li>3 cloves garlic, minced</li>
+            <li>2 tbsp cooking oil</li>
+            <li>2 cups water</li>
+            <li>1/4 cup vinegar</li>
+            <li>2-3 green chili peppers, sliced</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Heat the oil in a large pan over medium heat. Sauté the garlic and onion until fragrant.</li>
+            <li>Add the pork intestines and other offal, and cook until browned.</li>
+            <li>Pour in the water and bring to a boil. Lower the heat and simmer until the offal is tender.</li>
+            <li>Add the vinegar and cook for another 5 minutes.</li>
+            <li>Slowly pour in the pork blood while stirring continuously to prevent curdling.</li>
+            <li>Add the green chili peppers and simmer for another 10 minutes, or until the sauce has thickened.</li>
+            <li>Season with salt and pepper to taste.</li>
+            <li>Serve hot with steamed rice.</li>
+        </ol>
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/c95kr47zkeY" title="Delicious❗ Easy Pork recipe💯✅  The Best Dinuguan Method! How to Make Dinuguan Step by Step" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+    </div>
+
+    <div id="pinakbet-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('pinakbet-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Pinakbet</h2>
+            <img src="pinakbet.jpg" alt="Pinakbet" class="modal-image">
+            <p>Pinakbet is a Filipino vegetable dish made with mixed vegetables and shrimp paste.</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1/2 kg pork belly, cut into cubes</li>
+            <li>1 cup shrimp, peeled and deveined</li>
+            <li>1 cup squash, cubed</li>
+            <li>1 cup eggplant, sliced</li>
+            <li>1 cup bitter melon (ampalaya), sliced</li>
+            <li>1 cup okra, sliced</li>
+            <li>1 cup string beans, cut into 2-inch pieces</li>
+            <li>1 onion, chopped</li>
+            <li>3 cloves garlic, minced</li>
+            <li>2 tomatoes, chopped</li>
+            <li>2 tbsp shrimp paste (bagoong)</li>
+            <li>1 cup water</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Heat a large pan over medium heat. Add the pork belly and cook until browned and crispy. Remove from the pan and set aside.</li>
+            <li>In the same pan, sauté the garlic, onion, and tomatoes until fragrant and softened.</li>
+            <li>Add the shrimp paste and cook for another 2-3 minutes.</li>
+            <li>Return the pork belly to the pan and mix well.</li>
+            <li>Add the water and bring to a boil.</li>
+            <li>Add the squash, eggplant, bitter melon, okra, and string beans. Stir to combine.</li>
+            <li>Lower the heat and simmer for about 10-15 minutes, or until the vegetables are tender.</li>
+            <li>Season with salt and pepper to taste.</li>
+            <li>Serve hot with steamed rice.</li>
+        </ol>
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/lMubUv_p9aQ" title="How to cook PINAKBET with PORK BELLY | How to cook Pinakbet | Josie’s Pinoy Kitchen" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+    </div>
+
+    <div id="bibingka-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('bibingka-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Bibingka</h2>
+            <img src="bibingka.jpg" alt="Bibingka" class="modal-image">
+            <p>Bibingka is a Filipino rice cake traditionally served during Christmas season.</p>
+            <h2>Ingredients:</h2>
+            <ul>
+                <li>1 cup rice flour</li>
+                <li>1 cup coconut milk</li>
+                <li>1/2 cup sugar</li>
+                <li>2 tsp baking powder</li>
+                <li>1/4 tsp salt</li>
+                <li>2 eggs, beaten</li>
+                <li>1/4 cup melted butter</li>
+                <li>Banana leaves (for lining)</li>
+                <li>Grated coconut (for topping)</li>
+                <li>Salted egg slices (for topping)</li>
+            </ul>
+            <h2>Instructions:</h2>
+            <ol>
+                <li>Preheat your oven to 375°F (190°C). Line a baking pan with banana leaves and grease lightly with butter.</li>
+                <li>In a large bowl, combine the rice flour, sugar, baking powder, and salt. Mix well.</li>
+                <li>In another bowl, whisk together the coconut milk, eggs, and melted butter.</li>
+                <li>Gradually add the wet ingredients to the dry ingredients, mixing until well combined.</li>
+                <li>Pour the batter into the prepared baking pan.</li>
+                <li>Top with grated coconut and salted egg slices.</li>
+                <li>Bake for 25-30 minutes, or until a toothpick inserted into the center comes out clean.</li>
+                <li>Remove from the oven and let it cool slightly before serving.</li>
+            </ol>
+            <h2>Watch the Recipe Video:</h2>
+            <div class="video-container">
+                <iframe width="700" height="500" src="https://www.youtube.com/embed/JxQ_CD67XTU" title="The Yummiest Special Bibingka With Easy Recipe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>        </div>
+    </div>
+
+    <div id="puto-modal" class="modal">
+        <div class="modal-content">
+            <!-- From Uiverse.io by xopc333 -->
+            <button class="buttons" onclick="closeModal('puto-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+            <h2>Puto</h2>
+            <img src="puto.jpg" alt="Puto" class="modal-image">
+            <p>Puto is a Filipino steamed rice cake often served as a snack or side dish.</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1 cup rice flour</li>
+            <li>1/2 cup sugar</li>
+            <li>1 cup water</li>
+            <li>1 tbsp baking powder</li>
+            <li>1/4 tsp salt</li>
+            <li>1/4 cup grated cheese (optional)</li>
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+            <li>In a large bowl, combine the rice flour, sugar, baking powder, and salt. Mix well.</li>
+            <li>Gradually add the water to the dry ingredients, stirring until smooth and well combined.</li>
+            <li>Pour the batter into small, greased molds or muffin cups, filling them about 3/4 full.</li>
+            <li>Top with grated cheese if desired.</li>
+            <li>Steam the puto over medium heat for about 15-20 minutes, or until a toothpick inserted into the center comes out clean.</li>
+            <li>Remove from the steamer and let them cool slightly before removing from the molds.</li>
+            <li>Serve warm or at room temperature.</li>
+        </ol>
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/dBEnJXg6yzQ" title="How to Make Puto Recipe I Puto Cheese Recipe I Filipino Steam Cake" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+    </div>
+
+    <div id="inasal-modal" class="modal">
+    <div class="modal-content">
+        <!-- From Uiverse.io by xopc333 -->
+        <button class="buttons" onclick="closeModal('inasal-modal')">
+            <div class="button-boxx">
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+            </div>
+        </button>
+        <h2>Chicken Inasal</h2>
+        <img src="inasal.jpg" alt="Chicken Inasal" class="modal-image">
+        <p>Chicken Inasal is a popular Filipino grilled chicken dish marinated in a mixture of calamansi, vinegar, and spices.</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1 kg chicken thighs and drumsticks</li>
+            <li>1/2 cup calamansi juice (or lemon juice)</li>
+            <li>1/2 cup vinegar</li>
+            <li>1/4 cup soy sauce</li>
+            <li>1/4 cup annatto oil</li>
+            <li>1 head garlic, minced</li>
+            <li>1 thumb-sized ginger, minced</li>
+            <li>2 tbsp brown sugar</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+            <li>In a large bowl, combine the calamansi juice, vinegar, soy sauce, annatto oil, garlic, ginger, brown sugar, salt, and pepper. Mix well to create the marinade.</li>
+            <li>Add the chicken pieces to the marinade, ensuring they are well coated. Cover and refrigerate for at least 4 hours, preferably overnight.</li>
+            <li>Preheat the grill to medium-high heat. Grill the chicken, basting occasionally with the marinade, until cooked through and slightly charred, about 20-30 minutes.</li>
+            <li>Serve hot with steamed rice and enjoy.</li>
+        </ol>
+        <h2>Watch the Recipe Video:</h2>
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/7Gei0KO60yU" title="ETO ANG SIKRETO KO SA NAPAKA SARAP NA CHICKEN INASAL!!!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+    </div>
+
+    <div id="halang-halang-modal" class="modal">
+    <div class="modal-content">
+        <button class="buttons" onclick="closeModal('halang-halang-modal')">
+            <div class="button-boxx">
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+            </div>
+        </button>
+        <h2>Chicken Halang-Halang</h2>
+        <img src="halang-halang.jpg" alt="Chicken Halang-Halang" class="modal-image">
+        <p>Chicken Halang-Halang is a spicy Filipino chicken dish cooked with chili and lemongrass.</p>
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1 kg chicken, cut into pieces</li>
+            <li>3 cloves garlic, minced</li>
+            <li>1 thumb-sized ginger, minced</li>
+            <li>3-5 red chilies, sliced</li>
+            <li>2 stalks lemongrass, pounded</li>
+            <li>1 cup water</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h2>Instructions:</h2>
+        <ol>
+            <li>In a pan, sauté garlic, ginger, and lemongrass until fragrant.</li>
+            <li>Add the chicken pieces and cook until lightly browned.</li>
+            <li>Pour in the water and simmer for 20-30 minutes.</li>
+            <li>Add chilies, then season with salt and pepper to taste.</li>
+            <li>Serve hot with steamed rice. Enjoy!</li>
+        </ol>
+        <h2>Watch the Recipe Video:</h2>
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/eISHM5Y15p4" title="How to cook Chicken halang-halang (Bisaya version)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>     
+      
+</div>
+    <div id="lecheflan-modal" class="modal">
+        <div class="modal-content">
+            <button class="buttons" onclick="closeModal('lecheflan-modal')">
+                <div class="button-boxx">
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                    <span class="button-elemm">
+                        <svg viewBox="0 0 46 40">
+                            <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                        </svg>
+                    </span>
+                </div>
+            </button>
+        
+            <h2>Leche Flan</h2>
+            <img src="lecheflan.jpg" alt="Leche Flan" class="modal-image">
+            <p>Leche Flan is a rich and creamy Filipino custard dessert topped with caramel syrup.</p>
+        
+            <h2>Ingredients:</h2>
+            <ul>
+                <li>10 egg yolks</li>
+                <li>1 can (300ml) condensed milk</li>
+                <li>1 can (370ml) evaporated milk</li>
+                <li>1 cup sugar (for caramel)</li>
+                <li>1 tsp vanilla extract</li>
+            </ul>
+        
+            <h2>Instructions:</h2>
+            <ol>
+                <li>In a pan over low heat, melt the sugar until it turns into a golden caramel. Pour it into a llanera (flan mold) and let it cool.</li>
+                <li>In a bowl, whisk together egg yolks, condensed milk, evaporated milk, and vanilla extract until smooth.</li>
+                <li>Strain the mixture to remove lumps, then pour it into the caramel-coated mold.</li>
+                <li>Cover the mold with foil and steam for 30-40 minutes or until set.</li>
+                <li>Cool completely before inverting onto a plate. Serve and enjoy!</li>
+            </ol>
+        
+            <h2>Watch the Recipe Video:</h2>
+            <div class="video-container">
+                <iframe width="700" height="500" src="https://www.youtube.com/embed/H9KJqxkbMbA" title="Tips for Making Smooth and Creamy Leche Flan | Yummy Ph" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>            </div>
+    </div>
+    <div id="mangofloat-modal" class="modal">
+    <div class="modal-content">
+        <button class="buttons" onclick="closeModal('mangofloat-modal')">
+            <div class="button-boxx">
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+            </div>
+        </button>
+        <h2>Mango Float</h2>
+        <img src="mangofloat.jpg" alt="Mango Float" class="modal-image">
+        <p>Mango Float is a no-bake Filipino dessert known for its creamy texture and sweet mango layers.</p>
+
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>4 ripe mangoes, sliced thinly</li>
+            <li>2 packs graham crackers</li>
+            <li>2 cups all-purpose cream (chilled)</li>
+            <li>1 can (300ml) condensed milk</li>
+            <li>1/2 cup crushed graham crackers (for topping)</li>
+        </ul>
+
+        <h2>Instructions:</h2>
+        <ol>
+            <li>In a bowl, combine the chilled all-purpose cream and condensed milk. Whip until well blended.</li>
+            <li>In a rectangular dish, arrange a layer of graham crackers at the bottom.</li>
+            <li>Spread a layer of the cream mixture over the crackers, then add sliced mangoes on top.</li>
+            <li>Repeat the layers until all ingredients are used, ending with a cream layer.</li>
+            <li>Sprinkle crushed graham crackers on top for garnish.</li>
+            <li>Chill for at least 4 hours or overnight for best results.</li>
+            <li>Slice, serve, and enjoy!</li>
+        </ol>
+
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500 " src="https://www.youtube.com/embed/8zj1SyTwX3w" title="Mango Graham Float" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+</div>
+<div id="majablanca-modal" class="modal">
+    <div class="modal-content">
+        <button class="buttons" onclick="closeModal('majablanca-modal')">
+            <div class="button-boxx">
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+            </div>
+        </button>
+        <h2>Maja Blanca</h2>
+        <img src="majablanca.jpg" alt="Maja Blanca" class="modal-image">
+        <p>Maja Blanca is a traditional Filipino dessert made from coconut milk, corn, and sweet corn kernels.</p>
+
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>2 cups coconut milk</li>
+            <li>1 cup cornstarch</li>
+            <li>1 cup fresh milk</li>
+            <li>1 can (300ml) condensed milk</li>
+            <li>1/2 cup sugar</li>
+            <li>1 cup sweet corn kernels</li>
+            <li>1/2 cup roasted peanuts, chopped (for topping)</li>
+            <li>1/2 cup grated cheese (optional, for added flavor)</li>
+        </ul>
+
+        <h2>Instructions:</h2>
+        <ol>
+            <li>In a pot, combine coconut milk, fresh milk, condensed milk, and sugar. Stir well over medium heat.</li>
+            <li>Slowly add cornstarch while continuously stirring to avoid lumps.</li>
+            <li>Once the mixture thickens, add sweet corn kernels and stir for another 2-3 minutes.</li>
+            <li>Pour the mixture into a greased mold or tray and smooth the top.</li>
+            <li>Sprinkle roasted peanuts and grated cheese on top for added flavor.</li>
+            <li>Let it cool and set for at least 1 hour. Slice, serve, and enjoy!</li>
+        </ol>
+
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/PDEH-USSy0o" title="Creamy Maja Blanca | Iwas-palpak at creamy na Maja Blanca! Coconut Pudding Recipe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+</div>
+<div id="beefbatchoy-modal" class="modal">
+    <div class="modal-content">
+        <button class="buttons" onclick="closeModal('beefbatchoy-modal')">
+            <div class="button-boxx">
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+            </div>
+        </button>
+
+        <h2>Beef Batchoy</h2>
+        <img src="beefbatchoy.jpg" alt="Beef Batchoy" class="modal-image">
+        <p>Beef Batchoy is a hearty Filipino noodle soup with tender beef cuts, egg noodles, and flavorful broth.</p>
+
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>500g beef brisket, thinly sliced</li>
+            <li>200g beef liver, sliced thinly</li>
+            <li>500g egg noodles (miki noodles)</li>
+            <li>6 cups beef broth</li>
+            <li>1 head garlic, minced</li>
+            <li>1 onion, chopped</li>
+            <li>2 tbsp fish sauce</li>
+            <li>1 tbsp soy sauce</li>
+            <li>1/2 tsp ground pepper</li>
+            <li>2 tbsp cooking oil</li>
+            <li>Chicharon (crushed) for topping</li>
+            <li>Spring onions (chopped) for garnish</li>
+            <li>Egg (optional, poached or boiled)</li>
+        </ul>
+
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Heat oil in a pot over medium heat. Sauté garlic and onions until fragrant.</li>
+            <li>Add the beef brisket and cook until browned. Add beef liver and cook for 3 minutes.</li>
+            <li>Pour in the beef broth, fish sauce, and soy sauce. Bring to a boil, then simmer for 30 minutes until the beef is tender.</li>
+            <li>Add the egg noodles and cook for another 3-5 minutes.</li>
+            <li>Serve hot, topped with crushed chicharon, spring onions, and optional egg. Enjoy!</li>
+        </ol>
+
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/YSftE5s4xIk" title="La Paz Batchoy Recipe | Beef Noodle Soup | Mitz Vlogs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+</div>
+<div id="crispy-pata-modal" class="modal">
+    <div class="modal-content">
+        <button class="buttons" onclick="closeModal('crispy-pata-modal')">
+            <div class="button-boxx">
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+            </div>
+        </button>
+        
+        <h2>Crispy Pata</h2>
+        <img src="crispy_pata.jpg" alt="Crispy Pata" class="modal-image">
+        <p>A crispy and tender Filipino pork dish served with soy-vinegar dipping sauce.</p>
+
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1 whole pork leg (pata), cleaned</li>
+            <li>1 tbsp salt</li>
+            <li>1 tbsp peppercorns</li>
+            <li>5 cloves garlic, crushed</li>
+            <li>2 bay leaves</li>
+            <li>1 large onion, quartered</li>
+            <li>Water (enough to cover the pork leg)</li>
+            <li>1 tbsp fish sauce (optional)</li>
+            <li>Oil (for deep frying)</li>
+        </ul>
+
+        <h2>For the Dipping Sauce:</h2>
+        <ul>
+            <li>1/2 cup soy sauce</li>
+            <li>1/4 cup vinegar</li>
+            <li>1 tbsp sugar</li>
+            <li>2 cloves garlic, minced</li>
+            <li>1 small red onion, chopped</li>
+            <li>1-2 red chilies, chopped (optional)</li>
+        </ul>
+
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Clean the pork leg thoroughly under running water.</li>
+            <li>In a large pot, boil the pork leg with salt, peppercorns, garlic, bay leaves, and onion for 1.5 to 2 hours or until tender.</li>
+            <li>Drain and let cool completely. Pat dry with paper towels.</li>
+            <li>For best results, chill the pork leg in the refrigerator for at least 4 hours.</li>
+            <li>Deep-fry the pork leg in hot oil until crispy and golden brown.</li>
+            <li>For the dipping sauce, mix soy sauce, vinegar, sugar, garlic, onion, and chilies in a bowl.</li>
+            <li>Chop the crispy pata into serving portions and serve with the dipping sauce. Enjoy!</li>
+        </ol>
+
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/UjjkRzojZZ0" title="CRISPY PATA | THE SECRET OF COOKING TENDER JUICY & SUPER CRISPY PATA! 超カリカリ| Taste to Share | 슈퍼 바삭" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+</div>
+<div id="biko-modal" class="modal">
+    <div class="modal-content">
+        <button class="buttons" onclick="closeModal('biko-modal')">
+            <div class="button-boxx">
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+            </div>
+        </button>
+
+        <h2>Biko</h2>
+        <img src="biko.jpg" alt="Biko" class="modal-image">
+        <p>Biko is a popular Filipino sticky rice cake dessert, perfect for special occasions.</p>
+
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>2 cups glutinous rice (malagkit)</li>
+            <li>4 cups coconut milk</li>
+            <li>1 1/2 cups brown sugar</li>
+            <li>1/2 tsp salt</li>
+            <li>1/2 cup latik (coconut curds) for topping (optional)</li>
+        </ul>
+
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Rinse the glutinous rice thoroughly and cook it in 2 cups of coconut milk with a pinch of salt. Stir occasionally to prevent sticking.</li>
+            <li>In a separate pan, combine the remaining coconut milk and brown sugar. Cook over medium heat until the mixture thickens and becomes syrupy.</li>
+            <li>Once the rice is fully cooked, pour the sweet coconut mixture over the rice and stir well.</li>
+            <li>Transfer the mixture to a greased pan, press it down evenly, and garnish with latik if desired.</li>
+            <li>Let it cool before slicing and serving. Enjoy!</li>
+        </ol>
+
+        <h2>Watch the Recipe Video:</h2>
+        <iframe width="700" height="500" src="https://www.youtube.com/embed/eRngjbA-xGE" title="Biko Recipe with Latik Sauce - Simply Delicious But Not to too sweet" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    </div>
+</div>
+<div id="kinilaw-modal" class="modal">
+    <div class="modal-content">
+        <button class="buttons" onclick="closeModal('kinilaw-modal')">
+            <div class="button-boxx">
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+            </div>
+        </button>
+
+        <h2>Kinilaw</h2>
+        <img src="kinilaw.jpg" alt="Kinilaw" class="modal-image">
+        <p>Kinilaw is a traditional Filipino raw seafood dish marinated in vinegar and spices.</p>
+
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>500g fresh fish fillet (tuna, sardines, or mackerel), cubed</li>
+            <li>1 cup vinegar (preferably cane or coconut vinegar)</li>
+            <li>1/4 cup calamansi or lime juice</li>
+            <li>1 small red onion, thinly sliced</li>
+            <li>2-3 chili peppers, finely chopped (adjust for spice level)</li>
+            <li>1 thumb-sized ginger, minced</li>
+            <li>1/2 cup cucumber, diced</li>
+            <li>1/2 cup tomatoes, diced</li>
+            <li>Salt and pepper to taste</li>
+            <li>Optional: coconut cream for added richness</li>
+        </ul>
+
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Rinse the fish cubes thoroughly in cold water and drain well.</li>
+            <li>In a bowl, combine the fish, vinegar, and calamansi juice. Let it sit for 10-15 minutes to "cook" the fish.</li>
+            <li>Drain excess vinegar from the fish mixture.</li>
+            <li>Add onions, chili, ginger, cucumber, and tomatoes. Mix well.</li>
+            <li>Season with salt and pepper to taste. Optionally, add coconut cream for a richer flavor.</li>
+            <li>Chill for at least 30 minutes before serving.</li>
+            <li>Serve cold as an appetizer or with steamed rice.</li>
+        </ol>
+
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/G_hh7_TaPAs" title="Kinilaw Na TUNA | Filipino Style Tuna Ceviche" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        </div>
+</div>
+<div id="escabeche-modal" class="modal">
+    <div class="modal-content">
+        <button class="buttons" onclick="closeModal('escabeche-modal')">
+            <div class="button-boxx">
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+                <span class="button-elemm">
+                    <svg viewBox="0 0 46 40">
+                        <path d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"></path>
+                    </svg>
+                </span>
+            </div>
+        </button>
+
+        <h2>Fish Escabeche</h2>
+        <img src="escabeche.jpg" alt="Fish Escabeche" class="modal-image">
+        <p>A delicious sweet and sour Filipino fish dish topped with sautéed vegetables.</p>
+
+        <h2>Ingredients:</h2>
+        <ul>
+            <li>1 kg whole fish (like tilapia or lapu-lapu), cleaned and scored</li>
+            <li>1/2 cup vinegar</li>
+            <li>1/4 cup soy sauce</li>
+            <li>1/4 cup sugar</li>
+            <li>1 large carrot, julienned</li>
+            <li>1 bell pepper, sliced</li>
+            <li>1 onion, sliced</li>
+            <li>3 cloves garlic, minced</li>
+            <li>1 thumb-sized ginger, sliced thinly</li>
+            <li>1/2 cup water</li>
+            <li>2 tbsp cornstarch (dissolved in water)</li>
+            <li>2 tbsp cooking oil</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+
+        <h2>Instructions:</h2>
+        <ol>
+            <li>Season the fish with salt and pepper. Fry until golden brown, then set aside.</li>
+            <li>In a separate pan, sauté garlic, onion, and ginger in oil until fragrant.</li>
+            <li>Add the carrots and bell peppers. Cook for 2-3 minutes.</li>
+            <li>Pour in vinegar, soy sauce, sugar, and water. Stir well.</li>
+            <li>Let it simmer for 5 minutes, then add the cornstarch mixture to thicken the sauce.</li>
+            <li>Place the fried fish on a serving platter and pour the sauce over it.</li>
+            <li>Serve hot and enjoy with steamed rice!</li>
+        </ol>
+
+        <h2>Watch the Recipe Video:</h2>
+        <div class="video-container">
+            <iframe width="700" height="500" src="https://www.youtube.com/embed/eDJjxZuLO_Q" title="ESCABECHENG ISDA | HOW TO MAKE ESCABECHE | Cusina ni Nanay" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>        
+    </div>
+</div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('dark-mode', document.body.classList.contains('dark-mode'));
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            if (localStorage.getItem('dark-mode') === 'true') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('toggle-switch').checked = true;
+            }
+        });
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = "block";
+            modal.classList.remove('closing');
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('closing');
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 500); // Match the duration of the slideOut animation
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        }
+
+        function filterRecipes(category) {
+            const allRecipes = document.querySelectorAll('.recipe-preview');
+            allRecipes.forEach(recipe => {
+                if (category === 'all') {
+                    recipe.style.display = 'block';
+                } else if (recipe.classList.contains(category)) {
+                    recipe.style.display = 'block';
+                } else {
+                    recipe.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
